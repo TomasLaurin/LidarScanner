@@ -24,6 +24,7 @@ struct SavedObjectsView : View {
                 }
                 else {
                     List(viewModel.fileNames, id: \.self) { fileName in
+                        // MARK: - Share Button
                         Button(action: {
                             viewModel.currentlyDisplaying = fileName
                             viewModel.showModel.toggle()
@@ -37,6 +38,7 @@ struct SavedObjectsView : View {
                             }
                             .padding(4)
                         }
+                        // MARK: - Remove Button
                         .swipeActions(edge: .trailing) {
                             Button(role: .destructive, action: {
                                 viewModel.removeFile(fileName: fileName)
@@ -48,6 +50,7 @@ struct SavedObjectsView : View {
                             }
                         }
                     }
+                    // MARK: - Object View Model
                     .fullScreenCover(isPresented: $viewModel.showModel) {
                         NavigationStack {
                             ZStack(alignment: Alignment(horizontal: .leading, vertical: .top)) {
@@ -58,37 +61,7 @@ struct SavedObjectsView : View {
                                         )
                                     )
                                 }
-                                Button(action: {
-                                    viewModel.showModel = false
-                                }) {
-                                    Text("Back").padding()
-                                }
-                                VStack {
-                                    Spacer()
-                                    HStack {
-                                        Spacer()
-                                        NavigationLink {
-                                            ModelViewAR(
-                                                viewModel: ModelViewARModel(
-                                                    scene: viewModel.displayFile(fileName: viewModel.currentlyDisplaying)
-                                                )
-                                            )
-                                        } label: {
-                                            Text("View in AR")
-                                                .foregroundColor(.white)
-                                                .padding()
-                                                .background(
-                                                    RoundedRectangle(cornerRadius: 10)
-                                                        .fill(Color.blue)
-                                                        .overlay(
-                                                            RoundedRectangle(cornerRadius: 10)
-                                                                .stroke(Color.blue, lineWidth: 2)
-                                                        )
-                                                )
-                                        }
-                                        .padding()
-                                    }
-                                }
+                                arViewButton
                             }
                         }
                     }
@@ -103,8 +76,48 @@ struct SavedObjectsView : View {
 
         }
     }
+    
+    
+    // MARK: - AR view Button
+    var arViewButton: some View {
+        VStack {
+            Button(action: {
+                viewModel.showModel = false
+            }) {
+                Text("Back").padding()
+            }
+
+            Spacer()
+
+            HStack {
+                Spacer()
+
+                NavigationLink {
+                    ModelViewAR(
+                        viewModel: ModelViewARModel(
+                            scene: viewModel.displayFile(fileName: viewModel.currentlyDisplaying)
+                        )
+                    )
+                } label: {
+                    Text("View in AR")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(Color.blue)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color.blue, lineWidth: 2)
+                                )
+                        )
+                }
+                .padding()
+            }
+        }
+    }
 }
 
+// MARK: - Preview
 
 struct SavedObjectsViewPreview: PreviewProvider {
     static var previews: some View {

@@ -19,8 +19,6 @@ final class ScannerViewModel : ObservableObject {
     @Published var saveFile = false
     @Published var showObjects = false
     
-    @StateObject private var coordinator = Coordinator()
-    
     @State var arView = ARView(frame: .zero)
     
     func resetSettings() {
@@ -79,7 +77,7 @@ final class ScannerViewModel : ObservableObject {
         let asset = MDLAsset()
         
         for anchor in meshAnchors {
-            let mdlMesh = anchor.geometry.convertToMesh(device: device, camera: camera, modelMatrix: anchor.transform)
+            let mdlMesh = anchor.geometry.convertToMesh(device: device, modelMatrix: anchor.transform)
             asset.add(mdlMesh)
         }
         

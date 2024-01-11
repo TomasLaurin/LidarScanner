@@ -14,7 +14,7 @@
 		512A59442B3EF1230072B691 /* ModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512A59432B3EF1230072B691 /* ModelView.swift */; };
 		512A59462B3EF1300072B691 /* ModelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512A59452B3EF1300072B691 /* ModelViewModel.swift */; };
 		512A59482B402D140072B691 /* ScannerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512A59472B402D140072B691 /* ScannerWrapper.swift */; };
-		512A594D2B4034AF0072B691 /* Mesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512A594C2B4034AF0072B691 /* Mesh.swift */; };
+		512A594D2B4034AF0072B691 /* ARMeshGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512A594C2B4034AF0072B691 /* ARMeshGeometry.swift */; };
 		5169A92C2B4D7EBE00902973 /* NavigationViewDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169A92B2B4D7EBE00902973 /* NavigationViewDrawer.swift */; };
 		5169A92F2B4D97EF00902973 /* ModelViewAR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169A92E2B4D97EF00902973 /* ModelViewAR.swift */; };
 		5169A9312B4D97FF00902973 /* ModelViewARModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169A9302B4D97FF00902973 /* ModelViewARModel.swift */; };
@@ -22,6 +22,7 @@
 		519F6AB42B3EDE4900F1B31A /* LidarScannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519F6AB32B3EDE4900F1B31A /* LidarScannerApp.swift */; };
 		519F6AB82B3EDE4A00F1B31A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 519F6AB72B3EDE4A00F1B31A /* Assets.xcassets */; };
 		519F6ABB2B3EDE4A00F1B31A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 519F6ABA2B3EDE4A00F1B31A /* Preview Assets.xcassets */; };
+		51B691A22B4FC67200A030F0 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B691A12B4FC67200A030F0 /* ViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +50,7 @@
 		512A59432B3EF1230072B691 /* ModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelView.swift; sourceTree = "<group>"; };
 		512A59452B3EF1300072B691 /* ModelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelViewModel.swift; sourceTree = "<group>"; };
 		512A59472B402D140072B691 /* ScannerWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerWrapper.swift; sourceTree = "<group>"; };
-		512A594C2B4034AF0072B691 /* Mesh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mesh.swift; sourceTree = "<group>"; };
+		512A594C2B4034AF0072B691 /* ARMeshGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARMeshGeometry.swift; sourceTree = "<group>"; };
 		512A594E2B403DFB0072B691 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5169A92B2B4D7EBE00902973 /* NavigationViewDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewDrawer.swift; sourceTree = "<group>"; };
 		5169A92E2B4D97EF00902973 /* ModelViewAR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelViewAR.swift; sourceTree = "<group>"; };
@@ -61,6 +62,7 @@
 		519F6ABA2B3EDE4A00F1B31A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		519F6AC02B3EDE4A00F1B31A /* LidarScannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LidarScannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		519F6ACA2B3EDE4A00F1B31A /* LidarScannerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LidarScannerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		51B691A12B4FC67200A030F0 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,9 +93,9 @@
 		512A59382B3EE6FA0072B691 /* Scanner */ = {
 			isa = PBXGroup;
 			children = (
-				512A59472B402D140072B691 /* ScannerWrapper.swift */,
 				512A593F2B3EEB730072B691 /* ScannerView.swift */,
 				512A59412B3EEB8C0072B691 /* ScannerViewModel.swift */,
+				512A59472B402D140072B691 /* ScannerWrapper.swift */,
 			);
 			path = Scanner;
 			sourceTree = "<group>";
@@ -120,7 +122,8 @@
 		515FD2352B4060B800C45943 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				512A594C2B4034AF0072B691 /* Mesh.swift */,
+				512A594C2B4034AF0072B691 /* ARMeshGeometry.swift */,
+				51B691A12B4FC67200A030F0 /* ViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -129,8 +132,8 @@
 			isa = PBXGroup;
 			children = (
 				519F6AB32B3EDE4900F1B31A /* LidarScannerApp.swift */,
-				512A593A2B3EE72A0072B691 /* SavedObjects */,
 				512A59382B3EE6FA0072B691 /* Scanner */,
+				512A593A2B3EE72A0072B691 /* SavedObjects */,
 				512A59392B3EE7090072B691 /* Viewer */,
 				5169A92D2B4D976600902973 /* ViewerAR */,
 			);
@@ -315,7 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				512A594D2B4034AF0072B691 /* Mesh.swift in Sources */,
+				512A594D2B4034AF0072B691 /* ARMeshGeometry.swift in Sources */,
 				5169A9312B4D97FF00902973 /* ModelViewARModel.swift in Sources */,
 				512A59422B3EEB8C0072B691 /* ScannerViewModel.swift in Sources */,
 				5182121D2B4DC8A000A3591E /* ARWrapper.swift in Sources */,
@@ -325,6 +328,7 @@
 				512A593C2B3EE7830072B691 /* SavedObjectsView.swift in Sources */,
 				512A59462B3EF1300072B691 /* ModelViewModel.swift in Sources */,
 				512A593E2B3EE7930072B691 /* SavedObjectsViewModel.swift in Sources */,
+				51B691A22B4FC67200A030F0 /* ViewExtension.swift in Sources */,
 				5169A92F2B4D97EF00902973 /* ModelViewAR.swift in Sources */,
 				512A59442B3EF1230072B691 /* ModelView.swift in Sources */,
 				512A59402B3EEB730072B691 /* ScannerView.swift in Sources */,

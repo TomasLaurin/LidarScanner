@@ -19,6 +19,7 @@ struct NavigationViewDrawer<Content: View>: View {
                     .onTapGesture {
                         isOpen = false
                     }
+                    .ignoresSafeArea(.all)
             }
 
             VStack {

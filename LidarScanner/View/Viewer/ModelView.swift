@@ -29,8 +29,6 @@ struct ModelView : UIViewRepresentable {
         return scnView
     }
     
-    func updateUIView(_ uiView: UIViewType, context: Context) {
-        
-    }
+    func updateUIView(_ uiView: UIViewType, context: Context) {}
 }
 

@@ -35,7 +35,7 @@ class ModelViewARModel {
                 material.diffuse.contents = UIColor.white
             }
         }
-        // Also change the child nodes to white
+
         for childNode in node.childNodes {
             makeNodeWhite(childNode)
         }
