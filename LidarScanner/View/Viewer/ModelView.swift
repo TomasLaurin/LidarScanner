@@ -15,7 +15,7 @@ struct ModelView : UIViewRepresentable {
     func makeUIView(context: Context) -> some UIView {
         let scnView = SCNView()
         scnView.allowsCameraControl = true
-        scnView.autoenablesDefaultLighting = false
+        scnView.autoenablesDefaultLighting = true
         scnView.antialiasingMode = .multisampling4X
         
         let whiteMaterial = SCNMaterial()
