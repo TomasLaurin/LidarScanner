@@ -18,6 +18,7 @@ final class ScannerViewModel : ObservableObject {
     @Published var fileName = ""
     @Published var saveFile = false
     @Published var showObjects = false
+    @Published var showAlertExporting = false
     
     @State var arView = ARView(frame: .zero)
     
@@ -66,7 +67,7 @@ final class ScannerViewModel : ObservableObject {
             do {
                 try export(asset: asset, fileName: fileName)
             } catch {
-                print("Export error")
+                showAlertExporting = true
             }
         }
     }
@@ -98,9 +99,8 @@ final class ScannerViewModel : ObservableObject {
         
         do {
             try asset.export(to: url)
-            print("Object saved successfully at: ", url)
         } catch {
-            print("Error saving .obj file \(error)")
+            showAlertExporting = true
         }
     }
 }

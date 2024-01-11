@@ -72,6 +72,18 @@ struct SavedObjectsView : View {
             }
             .background(.black)
         }
+        .alert(isPresented: $viewModel.showAlertRetrieving) {
+            Alert(
+                title: Text("Error retrieving file"),
+                message: Text("There was an error retrieving files, please try again")
+            )
+        }
+        .alert(isPresented: $viewModel.showAlertRemoving) {
+            Alert(
+                title: Text("Error removing file"),
+                message: Text("There was an error removing the file, please try again")
+            )
+        }
     }
     
     

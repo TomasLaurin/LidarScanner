@@ -18,9 +18,9 @@ struct ModelWrapper : UIViewRepresentable {
         scnView.autoenablesDefaultLighting = true
         scnView.antialiasingMode = .multisampling4X
         
+        // Make material white for better visibility
         let whiteMaterial = SCNMaterial()
         whiteMaterial.diffuse.contents = UIColor.white
-        
         for node in scene.rootNode.childNodes {
             if let geometry = node.geometry {
                 geometry.materials = [whiteMaterial]

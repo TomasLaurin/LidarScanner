@@ -15,6 +15,9 @@ class SavedObjectsViewModel : ObservableObject {
     @Published var navigateToARView = false
     @Published var showModelInAR = false
     
+    @Published var showAlertRetrieving = false
+    @Published var showAlertRemoving = false
+    
     private let folderName = "created_models"
     
     func fetchFiles() {
@@ -25,12 +28,13 @@ class SavedObjectsViewModel : ObservableObject {
         let folderPath = documentsDirectory.appendingPathComponent(folderName)
         do {
             let filePath = try FileManager.default.contentsOfDirectory(at: folderPath, includingPropertiesForKeys: nil)
+            // do not show files with texture
             let filteredFiles = filePath.filter { (path) -> Bool in
                 return path.pathExtension == "obj"
             }
             fileNames = filteredFiles.map { $0.lastPathComponent }
         } catch {
-            print("Error fetching files: \(error)")
+            showAlertRetrieving = true
         }
     }
     
@@ -58,16 +62,15 @@ class SavedObjectsViewModel : ObservableObject {
         do {
             try FileManager.default.removeItem(at: objFilePath)
             try FileManager.default.removeItem(at: mtlFilePath)
-            print("File removed successfully: \(#filePath)")
         } catch {
-            print("Error removing file: \(error)")
+            showAlertRemoving = true
         }
         
     }
     
     func getObjFileFullPath(fileName: String) -> URL {
         guard let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
-            fatalError("Failed to access documents directory.")
+            fatalError("Failed to retrieve directory with saved objects.")
         }
         let folderPath = directory.appendingPathComponent(folderName)
         return folderPath.appendingPathComponent(fileName)
@@ -75,7 +78,7 @@ class SavedObjectsViewModel : ObservableObject {
     
     func getMtlFileFullPath(fileName: String) -> URL {
         guard let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
-            fatalError("Failed to access documents directory.")
+            fatalError("Failed to retrieve directory with saved objects.")
         }
         let fileNameWithoutExtension = fileName.split(separator: ".")[0]
         let folderPath = directory.appendingPathComponent(folderName)

@@ -202,6 +202,12 @@ struct ScannerView : View {
             .padding()
         }
         .padding()
+        .alert(isPresented: $viewModel.showAlertExporting) {
+            Alert(
+                title: Text("Error exporting file"),
+                message: Text("There was an error saving the file, ensure the app has permissions and try again")
+            )
+        }
     }
 }
 

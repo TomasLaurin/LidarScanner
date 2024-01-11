@@ -8,7 +8,6 @@
 import SwiftUI
 
 
-// MARK: Name view extension
 extension View {
     func placeholder<Content: View>(
         when shouldShow: Bool,

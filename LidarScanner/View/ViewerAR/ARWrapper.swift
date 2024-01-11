@@ -17,11 +17,12 @@ struct ARViewContainer: UIViewRepresentable {
         let configuration = configure()
         arView.allowsCameraControl = true
         arView.autoenablesDefaultLighting = true
+        arView.antialiasingMode = .multisampling4X
         arView.session.run(configuration)
         
+        // Make material white for better visibility
         let whiteMaterial = SCNMaterial()
         whiteMaterial.diffuse.contents = UIColor.white
-        
         for node in scene.rootNode.childNodes {
             if let geometry = node.geometry {
                 geometry.materials = [whiteMaterial]
@@ -29,7 +30,7 @@ struct ARViewContainer: UIViewRepresentable {
         }
         
         arView.scene = scene
-        
+
         return arView
     }
     
@@ -38,6 +39,12 @@ struct ARViewContainer: UIViewRepresentable {
     func configure() -> ARWorldTrackingConfiguration {
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = .horizontal
+        configuration.environmentTexturing = .automatic
+        configuration.worldAlignment = .gravity
+        configuration.isLightEstimationEnabled = true
+        if ARWorldTrackingConfiguration.supportsFrameSemantics(.sceneDepth) {
+            configuration.frameSemantics.insert(.sceneDepth)
+        }	
         return configuration
     }
 }
