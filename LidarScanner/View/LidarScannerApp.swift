@@ -11,25 +11,11 @@ import ARKit
 // MARK: - Main app
 @main
 struct LidarScannerApp: App {
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate // add the app delegate
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     var body: some Scene {
         WindowGroup {
             ScannerView()
         }
-    }
-}
-
-// MARK: - Navigation Coordinator
-// Coordinater class, for simpler navigation for views
-class Coordinator: ObservableObject {
-    @Published var path = NavigationPath()
-
-    func show<V>(_ viewType: V.Type) where V: View {
-        path.append(String(describing: viewType.self))
-    }
-
-    func popToRoot() {
-        path.removeLast(path.count)
     }
 }
 
