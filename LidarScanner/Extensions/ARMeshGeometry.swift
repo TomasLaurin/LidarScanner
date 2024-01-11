@@ -30,6 +30,8 @@ extension ARMeshGeometry {
     //   - camera: The ARCamera for potential future use.
     //   - modelMatrix: The transformation matrix for the mesh.
     // - Returns: An MDLMesh created from the ARMeshGeometry.
+    // https://developer.apple.com/documentation/arkit/arkit_in_ios/content_anchors/visualizing_and_interacting_with_a_reconstructed_scene
+    // https://stackoverflow.com/questions/61063571/arkit-how-to-export-obj-from-iphone-ipad-with-lidar
     func convertToMesh(device: MTLDevice, modelMatrix: simd_float4x4) -> MDLMesh {
         let verticesPointer = vertices.buffer.contents()
 
