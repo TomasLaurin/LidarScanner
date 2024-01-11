@@ -58,7 +58,7 @@ struct ScannerView : View {
             
             if viewModel.showObjects {
                 withAnimation {
-                    NavigationViewDrawer(isOpen: $viewModel.showObjects) {
+                    SideView(isOpen: $viewModel.showObjects) {
                         SavedObjectsView()
                     }
                     .padding(.vertical, 30)

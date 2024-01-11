@@ -9,8 +9,8 @@ import SwiftUI
 import SceneKit
 
 
-struct ModelView : UIViewRepresentable {
-    let viewModel: ModelViewModel
+struct ModelWrapper : UIViewRepresentable {
+    let scene: SCNScene
     
     func makeUIView(context: Context) -> some UIView {
         let scnView = SCNView()
@@ -21,13 +21,13 @@ struct ModelView : UIViewRepresentable {
         let whiteMaterial = SCNMaterial()
         whiteMaterial.diffuse.contents = UIColor.white
         
-        for node in viewModel.scene.rootNode.childNodes {
+        for node in scene.rootNode.childNodes {
             if let geometry = node.geometry {
                 geometry.materials = [whiteMaterial]
             }
         }
         
-        scnView.scene = viewModel.scene
+        scnView.scene = scene
         scnView.backgroundColor = .clear
 
         return scnView

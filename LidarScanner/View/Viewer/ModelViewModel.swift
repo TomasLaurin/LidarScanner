@@ -10,14 +10,3 @@ import SceneKit
 
 
 
-class ModelViewModel {
-    let scene: SCNScene
-    
-    init(scene: SCNScene) {
-        self.scene = scene
-    }
-    
-    func loadMtlTexture() {
-        
-    }
-}

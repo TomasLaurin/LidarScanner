@@ -55,10 +55,8 @@ struct SavedObjectsView : View {
                         NavigationStack {
                             ZStack(alignment: Alignment(horizontal: .leading, vertical: .top)) {
                                 if !viewModel.currentlyDisplaying.isEmpty {
-                                    ModelView(viewModel:
-                                        ModelViewModel(
-                                            scene: viewModel.displayFile(fileName: viewModel.currentlyDisplaying)
-                                        )
+                                    ModelWrapper (
+                                        scene: viewModel.displayFile(fileName: viewModel.currentlyDisplaying)
                                     )
                                 }
                                 arViewButton
@@ -73,7 +71,6 @@ struct SavedObjectsView : View {
                 viewModel.fetchFiles()
             }
             .background(.black)
-
         }
     }
     

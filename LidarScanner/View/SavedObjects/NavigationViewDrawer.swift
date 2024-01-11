@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NavigationViewDrawer<Content: View>: View {
+struct SideView<Content: View>: View {
     @Binding var isOpen: Bool
     var content: () -> Content
 
