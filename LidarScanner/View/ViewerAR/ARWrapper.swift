@@ -16,8 +16,18 @@ struct ARViewContainer: UIViewRepresentable {
     func makeUIView(context: Context) -> ARSCNView {
         let configuration = configure()
         arView.allowsCameraControl = true
-        arView.autoenablesDefaultLighting = true
+        arView.autoenablesDefaultLighting = false
         arView.session.run(configuration)
+        
+        let whiteMaterial = SCNMaterial()
+        whiteMaterial.diffuse.contents = UIColor.white
+        
+        for node in scene.rootNode.childNodes {
+            if let geometry = node.geometry {
+                geometry.materials = [whiteMaterial]
+            }
+        }
+        
         arView.scene = scene
         
         return arView

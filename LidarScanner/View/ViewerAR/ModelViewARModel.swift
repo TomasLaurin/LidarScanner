@@ -15,29 +15,10 @@ class ModelViewARModel {
     
     init(scene: SCNScene) {
         self.scene = scene
-        makeModelsInSceneWhite()
     }
     
     func cleanupARView() {
         arView.session.pause()
         arView.removeFromSuperview()
-    }
-
-    private func makeModelsInSceneWhite() {
-        scene.rootNode.enumerateChildNodes { (node, _) in
-            self.makeNodeWhite(node)
-        }
-    }
-
-    private func makeNodeWhite(_ node: SCNNode) {
-        if let geometry = node.geometry {
-            for material in geometry.materials {
-                material.diffuse.contents = UIColor.white
-            }
-        }
-
-        for childNode in node.childNodes {
-            makeNodeWhite(childNode)
-        }
     }
 }

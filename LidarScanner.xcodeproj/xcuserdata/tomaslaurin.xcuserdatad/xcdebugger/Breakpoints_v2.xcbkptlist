@@ -52,53 +52,5 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "463EDF6F-89EF-4C5D-A4AC-6D923E2BE965"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LidarScanner/View/Viewer/ModelView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "makeUIView(context:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "463EDF6F-89EF-4C5D-A4AC-6D923E2BE965 - cd9da46e0df75736"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LidarScanner.ModelView.makeUIView(context: SwiftUI.UIViewRepresentableContext&lt;LidarScanner.ModelView&gt;) -&gt; some"
-                  moduleName = "LidarScanner"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomaslaurin/source/LidarScanner/LidarScanner/View/Viewer/ModelView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "37"
-                  endingLineNumber = "37"
-                  offsetFromSymbolStart = "1704">
-               </Location>
-               <Location
-                  uuid = "463EDF6F-89EF-4C5D-A4AC-6D923E2BE965 - cd9da46e0df75736"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LidarScanner.ModelView.makeUIView(context: SwiftUI.UIViewRepresentableContext&lt;LidarScanner.ModelView&gt;) -&gt; some"
-                  moduleName = "LidarScanner"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomaslaurin/source/LidarScanner/LidarScanner/View/Viewer/ModelView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "37"
-                  endingLineNumber = "37"
-                  offsetFromSymbolStart = "1284">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

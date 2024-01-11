@@ -15,19 +15,24 @@ struct ModelView : UIViewRepresentable {
     func makeUIView(context: Context) -> some UIView {
         let scnView = SCNView()
         scnView.allowsCameraControl = true
-        scnView.autoenablesDefaultLighting = true
+        scnView.autoenablesDefaultLighting = false
         scnView.antialiasingMode = .multisampling4X
         
-        let lightNode = SCNNode()
-        lightNode.light = SCNLight()
-        lightNode.light?.color = UIColor.white
+        let whiteMaterial = SCNMaterial()
+        whiteMaterial.diffuse.contents = UIColor.white
         
-        viewModel.scene?.rootNode.addChildNode(lightNode)
+        for node in viewModel.scene.rootNode.childNodes {
+            if let geometry = node.geometry {
+                geometry.materials = [whiteMaterial]
+            }
+        }
         
         scnView.scene = viewModel.scene
         scnView.backgroundColor = .clear
+
         return scnView
     }
+
     
     func updateUIView(_ uiView: UIViewType, context: Context) {}
 }

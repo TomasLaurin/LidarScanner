@@ -81,37 +81,41 @@ struct SavedObjectsView : View {
     // MARK: - AR view Button
     var arViewButton: some View {
         VStack {
-            Button(action: {
-                viewModel.showModel = false
-            }) {
-                Text("Back").padding()
-            }
-
-            Spacer()
-
             HStack {
-                Spacer()
-
-                NavigationLink {
-                    ModelViewAR(
-                        viewModel: ModelViewARModel(
-                            scene: viewModel.displayFile(fileName: viewModel.currentlyDisplaying)
-                        )
-                    )
-                } label: {
-                    Text("View in AR")
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Color.blue)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(Color.blue, lineWidth: 2)
-                                )
-                        )
+                Button(action: {
+                    viewModel.showModel = false
+                }) {
+                    Text("Back").padding()
                 }
-                .padding()
+                Spacer()
+            }
+            
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    
+                    NavigationLink {
+                        ModelViewAR(
+                            viewModel: ModelViewARModel(
+                                scene: viewModel.displayFile(fileName: viewModel.currentlyDisplaying)
+                            )
+                        )
+                    } label: {
+                        Text("View in AR")
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .fill(Color.blue)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(Color.blue, lineWidth: 2)
+                                    )
+                            )
+                    }
+                    .padding()
+                }
             }
         }
     }
